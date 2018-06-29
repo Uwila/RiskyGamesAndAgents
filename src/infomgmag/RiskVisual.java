@@ -6,6 +6,8 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics2D;
+import java.awt.GraphicsDevice;
+import java.awt.GraphicsEnvironment;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -95,6 +97,10 @@ public class RiskVisual extends JFrame {
             this.setSize(width, height);
             this.pack();
             this.setVisible(true);
+            this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+            GraphicsDevice d = GraphicsEnvironment
+                    .getLocalGraphicsEnvironment().getDefaultScreenDevice();
+            d.setFullScreenWindow(this);
 
             this.buffer = new BufferedImage(gameWidth, gameHeight, BufferedImage.TYPE_INT_ARGB);
 

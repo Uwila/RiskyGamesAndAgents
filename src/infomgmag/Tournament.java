@@ -7,10 +7,10 @@ import java.util.Random;
 
 public class Tournament {
 
-    public static final boolean VISIBLE = true;
+    public static final boolean VISIBLE = false;
     public static final int SPEED = 0;
 
-    public static final int RUNS = 10;
+    public static final int RUNS = 30;
     public static final int STARTING_SEED = (int)System.currentTimeMillis();
 
 	public static HashMap<String, String> players;
@@ -29,6 +29,7 @@ public class Tournament {
         if(!RANDOMIZE_PLAYERS)
             setPlayers();
         for(int i = STARTING_SEED; i < RUNS + STARTING_SEED; i++) {
+            System.out.println(i - STARTING_SEED + 1);
             Risk risk = new Risk(VISIBLE);
             if(RANDOMIZE_PLAYERS)
                 randomizePlayers();
@@ -38,6 +39,7 @@ public class Tournament {
         }
         
         printResults(results);
+        System.exit(0);
     }
 
 	private static void printResults(ArrayList<Result> results) {
@@ -136,10 +138,10 @@ public class Tournament {
     }
 	
 	private static void setPlayers() {
-        players.put("aggressiveA", "aggressive");
-        players.put("normalA", "normal");
-        players.put("normalB", "normal");
-        players.put("defensiveA", "defensive");
-        players.put("continentA", "continent");
+        players.put("Aggressive", "aggressive");
+        players.put("Normal", "normal");
+        players.put("Vengeful", "vengeful");
+        players.put("Defensive", "defensive");
+        players.put("Continent", "continent");
     }
 }
